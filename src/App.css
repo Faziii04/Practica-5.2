@@ -3,40 +3,209 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: left;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Home Page */
+.hero {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 4rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.cta-button {
+  background-color: #646cff;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
 }
 
-.card {
-  padding: 2em;
+.cta-button:hover {
+  background-color: #535bf2;
 }
 
-.read-the-docs {
-  color: #888;
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.service-card {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.about {
+  background: #eef2ff;
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+footer {
+  margin-top: auto;
+  padding: 2rem 0;
+  text-align: center;
+  color: #666;
+  border-top: 1px solid #eee;
+}
+
+/* Login Page */
+.login-page {
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-button {
+  width: 100%;
+  background-color: #646cff;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #666;
+  margin-top: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Dashboard */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 2rem;
+}
+
+.logout-button {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  text-align: center;
+  border: 1px solid #eee;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #646cff;
+  margin: 0.5rem 0 0;
+}
+
+.shipments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.shipments-table th,
+.shipments-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.shipments-table th {
+  background-color: #f9f9f9;
+  font-weight: 600;
+}
+
+.status-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.status-badge.en-tránsito {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-badge.entregado {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-badge.pendiente {
+  background-color: #fff3e0;
+  color: #ef6c00;
 }
