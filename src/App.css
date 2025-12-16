@@ -333,3 +333,55 @@
   color: var(--color-primary);
   text-decoration: underline;
 }
+
+/* ===============================================
+   RESPONSIVE - NAVBAR
+   =============================================== */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 var(--spacing-md);
+    height: 60px;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  
+  .navbar-brand span {
+    display: none;
+  }
+  
+  .navbar-links {
+    gap: var(--spacing-sm);
+  }
+  
+  .nav-link {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.85rem;
+  }
+  
+  .user-avatar-btn .user-name {
+    display: none;
+  }
+  
+  .user-dropdown {
+    right: -10px;
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    height: 56px;
+  }
+  
+  .nav-link {
+    padding: var(--spacing-xs);
+    font-size: 0.8rem;
+  }
+  
+  .btn-primary {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.85rem;
+  }
+}

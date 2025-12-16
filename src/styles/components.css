@@ -665,3 +665,159 @@
   font-size: 0.8rem;
   color: var(--color-gray-600);
 }
+
+/* ===============================================
+   RESPONSIVE - COMPONENTS
+   =============================================== */
+@media (max-width: 768px) {
+  .user-dropdown {
+    right: -10px;
+    min-width: 260px;
+  }
+  
+  .dropdown-header {
+    padding: var(--spacing-sm);
+    gap: var(--spacing-sm);
+  }
+  
+  .user-avatar.large {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .notification-dropdown {
+    width: calc(100vw - 32px);
+    max-width: 380px;
+    right: -60px;
+  }
+  
+  .notification-list {
+    max-height: 300px;
+  }
+  
+  .notification-item {
+    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
+  
+  .notification-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .notification-content p {
+    font-size: 0.85rem;
+  }
+  
+  .modal-overlay {
+    padding: var(--spacing-md);
+  }
+  
+  .modal-content {
+    border-radius: var(--radius-lg);
+    max-height: 85vh;
+  }
+  
+  .modal-header {
+    padding: var(--spacing-md);
+  }
+  
+  .modal-header h2 {
+    font-size: 1.25rem;
+  }
+  
+  .tracking-form {
+    padding: var(--spacing-md);
+  }
+  
+  .tracking-results {
+    padding: var(--spacing-md);
+  }
+  
+  .tracking-timeline {
+    padding-left: var(--spacing-lg);
+  }
+  
+  .timeline-marker {
+    width: 14px;
+    height: 14px;
+    left: -7px;
+  }
+  
+  .timeline-content h4 {
+    font-size: 0.85rem;
+  }
+  
+  .timeline-content p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-dropdown {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-width: 100%;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  
+  .notification-dropdown {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    max-height: 70vh;
+  }
+  
+  .notification-header {
+    padding: var(--spacing-md);
+  }
+  
+  .modal-overlay {
+    padding: var(--spacing-sm);
+    align-items: flex-end;
+  }
+  
+  .modal-content {
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    max-height: 90vh;
+  }
+  
+  .modal-header {
+    padding: var(--spacing-md);
+  }
+  
+  .modal-header h2 {
+    font-size: 1.1rem;
+  }
+  
+  .tracking-form .input-group {
+    flex-direction: column;
+  }
+  
+  .tracking-form .input-group input {
+    border-radius: var(--radius-md);
+  }
+  
+  .tracking-form .input-group button {
+    border-radius: var(--radius-md);
+    width: 100%;
+  }
+  
+  .progress-bar-container {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+}
