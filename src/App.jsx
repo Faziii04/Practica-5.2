@@ -10,6 +10,7 @@ import './styles/home.css';
 import './styles/login.css';
 import './styles/dashboard.css';
 import './styles/footer.css';
+import './styles/components.css';
 
 function AppContent() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -20,32 +21,34 @@ function AppContent() {
     window.scrollTo(0, 0);
   };
 
-  // Protección de rutas simple
+  // Route protection
   if (currentPage === 'dashboard' && !user) {
     return <Login onNavigate={navigate} />;
   }
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'login':
-        return <Login onNavigate={navigate} />;
-      case 'dashboard':
-        return <Dashboard onNavigate={navigate} />;
-      case 'home':
-      default:
-        return <Home onNavigate={navigate} />;
-    }
-  };
+  // Login page (no navbar/footer)
+  if (currentPage === 'login') {
+    return <Login onNavigate={navigate} />;
+  }
 
-  const isLoginPage = currentPage === 'login';
+  // Dashboard page (has its own layout with sidebar)
+  if (currentPage === 'dashboard') {
+    return (
+      <div className="app-layout">
+        <Navbar onNavigate={navigate} currentPage={currentPage} />
+        <Dashboard onNavigate={navigate} />
+      </div>
+    );
+  }
 
+  // Home page (with navbar and footer)
   return (
     <div className="app-layout">
-      {!isLoginPage && <Navbar onNavigate={navigate} currentPage={currentPage} />}
+      <Navbar onNavigate={navigate} currentPage={currentPage} />
       <main className="main-content">
-        {renderPage()}
+        <Home onNavigate={navigate} />
       </main>
-      {!isLoginPage && currentPage !== 'dashboard' && <Footer />}
+      <Footer />
     </div>
   );
 }

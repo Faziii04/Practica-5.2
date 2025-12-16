@@ -1,102 +1,189 @@
-import React from 'react';
+import { useState } from 'react';
+import TrackingModal from '../components/TrackingModal';
 
-export default function Home({ onNavigate }) {
+function Home({ onNavigate }) {
+  const [isTrackingOpen, setIsTrackingOpen] = useState(false);
+
+  const stats = [
+    { value: '15+', label: 'Años de Experiencia' },
+    { value: '50k+', label: 'Envíos Completados' },
+    { value: '98%', label: 'Satisfacción del Cliente' },
+    { value: '24/7', label: 'Soporte Disponible' }
+  ];
+
+  const services = [
+    {
+      icon: '🚚',
+      title: 'Transporte Terrestre',
+      description: 'Servicio de carga terrestre a nivel nacional con rutas optimizadas.',
+      features: ['Carga completa', 'Carga consolidada', 'Entregas programadas']
+    },
+    {
+      icon: '✈️',
+      title: 'Logística Aérea',
+      description: 'Envíos urgentes con nuestra red de transporte aéreo internacional.',
+      features: ['Express 24hrs', 'Carga internacional', 'Documentación aduanera']
+    },
+    {
+      icon: '📦',
+      title: 'Almacenamiento',
+      description: 'Bodegas seguras con tecnología de gestión de inventario.',
+      features: ['Control de temperatura', 'Seguro incluido', 'Gestión de stock']
+    },
+    {
+      icon: '🌎',
+      title: 'Comercio Internacional',
+      description: 'Facilitamos el comercio exterior con asesoría especializada.',
+      features: ['Gestión aduanera', 'Certificaciones', 'Tracking global']
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: 'María González',
+      company: 'Importadora del Sur',
+      text: 'Excelente servicio. Siempre puntuales y profesionales. Llevan nuestras importaciones con total seguridad.',
+      rating: 5
+    },
+    {
+      name: 'Carlos Pérez',
+      company: 'Distribuidora Nacional',
+      text: 'La mejor empresa de logística en Bolivia. Su sistema de tracking es muy útil y el equipo siempre está disponible.',
+      rating: 5
+    },
+    {
+      name: 'Ana Rodríguez',
+      company: 'Exportaciones Andinas',
+      text: 'Trabajamos con ellos hace 5 años. Confiables, eficientes y con excelentes tarifas.',
+      rating: 5
+    }
+  ];
+
   return (
     <div className="home-page">
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
-          <h1>Logística Sin Fronteras en Bolivia</h1>
+          <h1>
+            Soluciones Logísticas <span className="highlight">Integrales</span>
+          </h1>
           <p>
-            Conectamos sus negocios con el mundo. Transporte seguro, eficiente y puntual 
-            a los 9 departamentos del país.
+            Conectamos tu negocio con Bolivia y el mundo. Transporte terrestre, aéreo y almacenamiento con la confiabilidad que tu empresa necesita.
           </p>
           <div className="hero-buttons">
-            <button onClick={() => onNavigate('login')} className="btn-primary large">
-              Cotizar Envío
+            <button className="btn btn-primary" onClick={() => setIsTrackingOpen(true)}>
+              Rastrear Envío
             </button>
-            <button className="btn-outline large">
-              Rastrear Carga
+            <button className="btn btn-secondary" onClick={() => onNavigate('login')}>
+              Solicitar Cotización
             </button>
           </div>
         </div>
         <div className="hero-image-placeholder">
-          {/* Abstract representation of logistics/map */}
-          <div className="truck-animation">
-            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="1" y="3" width="15" height="13"></rect>
-              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-              <circle cx="5.5" cy="18.5" r="2.5"></circle>
-              <circle cx="18.5" cy="18.5" r="2.5"></circle>
-            </svg>
+          <div className="floating-cards">
+            <div className="floating-card card-1">
+              <span className="card-icon">📦</span>
+              <div className="card-text">
+                <strong>Envío Rápido</strong>
+                <span>24-48 horas</span>
+              </div>
+            </div>
+            <div className="floating-card card-2">
+              <span className="card-icon">✓</span>
+              <div className="card-text">
+                <strong>Entregado</strong>
+                <span>La Paz, Bolivia</span>
+              </div>
+            </div>
+            <div className="floating-card card-3">
+              <span className="card-icon">🚚</span>
+              <div className="card-text">
+                <strong>En Tránsito</strong>
+                <span>Santa Cruz → Cochabamba</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
       <section className="stats-section">
-        <div className="stat-item">
-          <span className="stat-number">15+</span>
-          <span className="stat-label">Años de Experiencia</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-number">50k+</span>
-          <span className="stat-label">Envíos Completados</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-number">9</span>
-          <span className="stat-label">Departamentos Cubiertos</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-number">24/7</span>
-          <span className="stat-label">Soporte Activo</span>
-        </div>
+        {stats.map((stat, index) => (
+          <div key={index} className="stat-item">
+            <span className="stat-number">{stat.value}</span>
+            <span className="stat-label">{stat.label}</span>
+          </div>
+        ))}
       </section>
 
       {/* Services Section */}
       <section className="services-section">
         <div className="section-header">
-          <h2>Nuestras Soluciones</h2>
-          <p>Adaptamos nuestros servicios a las necesidades de su cadena de suministro.</p>
+          <h2>Nuestros Servicios</h2>
+          <p>Soluciones logísticas completas adaptadas a las necesidades de tu empresa</p>
         </div>
-        
         <div className="services-grid">
-          <div className="service-card">
-            <div className="icon-box">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          {services.map((service, index) => (
+            <div key={index} className="service-card">
+              <div className="icon-box">{service.icon}</div>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+              <ul className="service-features">
+                {service.features.map((feature, idx) => (
+                  <li key={idx}>✓ {feature}</li>
+                ))}
+              </ul>
             </div>
-            <h3>Almacenaje</h3>
-            <p>Centros de distribución estratégicos en el eje troncal para gestión de inventarios.</p>
-          </div>
-          
-          <div className="service-card">
-            <div className="icon-box">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-            </div>
-            <h3>Transporte Terrestre</h3>
-            <p>Flota moderna de camiones de alto tonelaje y vehículos ligeros para distribución.</p>
-          </div>
+          ))}
+        </div>
+      </section>
 
-          <div className="service-card">
-            <div className="icon-box">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+      {/* Testimonials Section */}
+      <section className="testimonials-section">
+        <h2>Lo Que Dicen Nuestros Clientes</h2>
+        <p className="section-subtitle">La confianza de más de 500 empresas en Bolivia</p>
+        <div className="testimonials-grid">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="testimonial-card">
+              <div className="stars">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <span key={i}>★</span>
+                ))}
+              </div>
+              <p>"{testimonial.text}"</p>
+              <div className="testimonial-author">
+                <div className="author-avatar">
+                  {testimonial.name.split(' ').map(n => n[0]).join('')}
+                </div>
+                <div>
+                  <strong>{testimonial.name}</strong>
+                  <span>{testimonial.company}</span>
+                </div>
+              </div>
             </div>
-            <h3>Logística Inversa</h3>
-            <p>Gestión eficiente de devoluciones y reciclaje de productos.</p>
-          </div>
+          ))}
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="cta-section">
         <div className="cta-content">
-          <h2>¿Listo para optimizar su logística?</h2>
-          <p>Únase a las empresas líderes que confían en Zambrana Hnos.</p>
-          <button onClick={() => onNavigate('login')} className="btn-white">
+          <h2>¿Listo para Optimizar tu Logística?</h2>
+          <p>
+            Únete a las empresas que confían en Zambrana Hnos para sus necesidades de transporte y almacenamiento
+          </p>
+          <button className="btn btn-primary btn-large" onClick={() => onNavigate('login')}>
             Comenzar Ahora
           </button>
         </div>
       </section>
+      
+      <TrackingModal 
+        isOpen={isTrackingOpen} 
+        onClose={() => setIsTrackingOpen(false)} 
+      />
     </div>
   );
 }
+
+export default Home;
